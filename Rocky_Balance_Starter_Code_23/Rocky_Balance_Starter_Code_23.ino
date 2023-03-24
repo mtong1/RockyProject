@@ -86,19 +86,56 @@ void BalanceRocky()
 
     // **************Enter the control parameters here
     
-//  float Kp = 5980;
-//  float Ki = 28700;
-//  float Ci = -1900;   
-//  float Jp = 5980;
-//  float Ji = -1900;
 
-  float Ki = 7.9110*pow(10,5)+05;
-  float Kp = 1.6506*pow(10,5)+05;
-  float Ji = -2.9060*pow(10,5)+05;
-  float Jp = 2.1143*pow(10,3)+03;
-  float Ci = -7.0547*pow(10,5)+05; 
+    float Ci = -4.921541284403670*pow(10,3);
+    float Ki = 1.953827384115334*pow(10,4);
+    float Kp = 4.245996274076016*pow(10,3);
+    float Ji = -3.111117169069463*pow(10,3);
+    float Jp = 1.714285714285714*pow(10,2);
+
+// chris og 
+//  float Ki = 7.9110*pow(10,5);
+//  float Kp = 1.6506*pow(10,5);
+//  float Ji = -2.9060*pow(10,5);
+//  float Jp = 2.1143*pow(10,3);
+//  float Ci = -7.0547*pow(10,5); 
 
 
+// chris 5 
+//  float Kp = 5.6658*pow(10,3);
+//  float Ki = 2.3752*pow(10,4);
+//  float Ci = -3.2550*pow(10,3);   
+//  float Jp = 257.1429;
+//  float Ji = -3.5805*pow(10,3);
+
+// chris 4 WORKS
+//    float Kp = 3.4109*pow(10,3);
+//    float Ki = 1.4290*pow(10,4);
+//    float Ji = -1.3166*pow(10,3);
+//    float Jp = 171.4286;
+//    float Ci = -683.5474;
+
+// chris 3 WORKS
+//    float Kp = 2.4865*pow(10,3);
+//    float Ki = 1.0383*pow(10,4);
+//    float Ji = -919.5340;
+//    float Jp = 85.7143;
+////    float Ci = -854.4343;
+//    float Ci = -1700;
+
+// chris 2 
+//    float Kp = 6.0348*pow(10,3);
+//    float Ki = 2.5214*pow(10,4);
+//    float Ji = -3.8409*pow(10,3);
+//    float Jp = 285.7143;
+//    float Ci = -3.255*pow(10,3);
+
+// chris 1 
+//    float Kp = 2.8435*pow(10,3);
+//    float Ki = 1.1711*pow(10,4);
+//    float Ji = -1.4764*pow(10,3);
+//    float Jp = 85.7143;
+//    float Ci = -1.486*pow(10,3);
 
     float v_c_L, v_c_R; // these are the control velocities to be sent to the motors
     float v_d = 0; // this is the desired speed produced by the angle controller
@@ -124,8 +161,8 @@ void BalanceRocky()
   // right to left. This helps ensure that the Left and Right motors are balanced
 
   // *** enter equations for input signals for v_c (left and right) in terms of the variables available ****
-    v_c_R = v_d - ((Jp * measured_speedR) + (Ji * distRight_m) + (Ci * dist_accum));
-    v_c_L = v_d - ((Jp * measured_speedL) + (Ji * distLeft_m) + (Ci * dist_accum));
+    v_c_R = v_d - ((Jp * measured_speedR) + (Ji * distLeft_m) + (Ci * dist_accum));
+    v_c_L = v_d - ((Jp * measured_speedL) + (Ji * distRight_m) + (Ci * dist_accum));
 
 
 
